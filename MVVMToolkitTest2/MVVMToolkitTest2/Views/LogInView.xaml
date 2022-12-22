@@ -10,10 +10,12 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
             <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="20"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
@@ -24,5 +26,7 @@
             <TextBox x:Name="lastNameTxt" Text="{Binding User.LastName, Mode=TwoWay}"/>
             <Button Command="{Binding SendLoggedInUserMessageCommand}">Log In</Button>
         </StackPanel>
+        <DataGrid ItemsSource="{Binding Users}" Grid.Column="2" Grid.Row="2"/>
+        <Button Command="{Binding AddUsersCommand}" Grid.Column="1" Grid.Row="3">Add User</Button>
     </Grid>
 </Window>

@@ -4,24 +4,50 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MVVMToolkitTest2.Views"
+        xmlns:uc="clr-namespace:MVVMToolkitTest2.Controls"
         mc:Ignorable="d"
         Title="MainView" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
             <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="60"/>
+            <ColumnDefinition Width="20"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="1">
-            <TextBlock Text="{Binding Name}"/>
-            <Button Command="{Binding ChangeFirstNameCommand}">Click Me</Button>
+            <TextBlock Text="{Binding FirstName}"/>
+            <Button Command="{Binding ChangeFirstNameCommand}" CommandParameter="{Binding User}">Click Me</Button>
         </StackPanel>
-        <Button Click="Button_Click" Grid.Column="3" Grid.Row="0">Log In</Button> 
+        <Button Click="Button_Click" Grid.Column="3" Grid.Row="0">Log In</Button>
+        <DataGrid ItemsSource="{Binding Users}" Grid.Column="2" Grid.Row="2" MinWidth="400" 
+                  SelectedItem="{Binding SelectedUser, Mode=OneWayToSource}"/>
+        <Button Command="{Binding AddUsersCommand}" Grid.Column="3" Grid.Row="3">Add User</Button>
+        <Button Command="{Binding RemoveUserCommand}" Grid.Column="3" Grid.Row="4">RemoveUser</Button>
+        <!--UserControl-->
+        <!--Normal Properties are hard-coded while Dependency Property is Binding-->
+        <uc:LimitedInputUserControl Title="User Control Test" MaxLength="20" 
+                                    ControlText="{Binding FirstName, Mode=TwoWay}"  Grid.Column="2" Grid.Row="5"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="6" Grid.Column="2">
+            <TextBlock Text="FisrtName:"/>
+            <TextBox Text="{Binding FirstName}" MinWidth="150"/>
+        </StackPanel>        
+        <StackPanel Orientation="Horizontal" Grid.Row="7" Grid.Column="2">
+            <TextBlock Text="LastName:"/>
+            <TextBox Text="{Binding LastName}" MinWidth="150"/>
+        </StackPanel>
+        <TextBlock Grid.Column="2" Grid.Row="8" Text="{Binding FullName}"/>
     </Grid>
 </Window>
