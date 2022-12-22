@@ -31,9 +31,9 @@ namespace MVVMToolkitTest2
                 .ConfigureServices((_, services) =>
                 {
                     services.AddSingleton<MainViewModel>();
-                    services.AddTransient<LogInViewModel>();
+                    services.AddSingleton<LogInViewModel>();
                     services.AddSingleton<MainView>();
-                    services.AddTransient<LogInView>();
+                    services.AddSingleton<LogInView>();
                 });
             var host = builder.Build();
 
