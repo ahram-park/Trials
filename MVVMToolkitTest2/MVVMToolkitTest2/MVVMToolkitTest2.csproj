@@ -8,6 +8,32 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\document-save.png" />
+    <None Remove="Images\Filter.png" />
+    <None Remove="Images\help_earth.png" />
+    <None Remove="Images\minus.png" />
+    <None Remove="Images\plus.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Images\document-save.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Filter.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\help_earth.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\minus.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\plus.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.0" />
   </ItemGroup>
